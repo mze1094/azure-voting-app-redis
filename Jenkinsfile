@@ -9,7 +9,7 @@ pipeline {
       }
       stage('Docker Build') {
          steps {
-            sh 'sudo apt-get install docker.io'
+            sh 'apt-get install docker.io'
             sh 'docker images -a'
             sh '''cd azure-vote
             docker image -a
