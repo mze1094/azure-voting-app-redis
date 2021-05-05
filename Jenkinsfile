@@ -9,13 +9,14 @@ pipeline {
       }
       stage('Docker Build') {
          steps {
-            sh 'apt-get install docker.io'
-            sh 'docker images -a'
-            sh '''cd azure-vote
-            docker image -a
-            docker build -t jenkins-pipeline .
-            docker images -a
-            cd..'''
+            pwsh(script: 'docker images -a')
+            pwsh(script: """
+               cd azure-vote/
+               docker images -a
+               docker build -t jenkins-pipeline .
+               docker images -a
+               cd ..
+            """)
          }
       }
       stage('Start test app') {
