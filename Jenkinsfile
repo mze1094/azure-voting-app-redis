@@ -9,8 +9,7 @@ pipeline {
       }
       stage('Docker Build') {
          steps {
-            sh '''#!/bin/bash
-                    echo "hello world"''' 
+            sh 'docker images -a'
             // pwsh(script: """docker images -a
             //    cd azure-vote/
             //    docker images -a
