@@ -12,7 +12,7 @@ pipeline {
             sh 'docker images -a'
             sh 'pwd'
             sh 'docker --version'
-            sh 'docker info'
+            sh 'ls'
             // pwsh(script: """docker images -a
             //    cd azure-vote/
             //    docker images -a
