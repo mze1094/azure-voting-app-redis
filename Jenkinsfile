@@ -10,16 +10,14 @@ pipeline {
       stage('Docker Build') {
          steps {
             sh 'docker images -a'
-            sh 'pwd'
-            sh 'docker --version'
-            sh 'ls'
-            // pwsh(script: """docker images -a
-            //    cd azure-vote/
-            //    docker images -a
-            //    docker build -t jenkins-pipeline .
-            //    docker images -a
-            //    cd ..
-            // """)
+            sh '''
+                  docker images -a
+                  cd azure-vote/
+                  docker images -a
+                  docker build -t jenkins-pipeline .
+                  docker images -a
+                  cd ..
+               '''
          }
       }
       stage('Start test app') {
